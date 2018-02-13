@@ -4,7 +4,7 @@ fn fibonacci(n: u32) -> u32 {
         1 => 1,
         2 => 1,
         _ => (1..n)
-                .fold((1, 1), |acc, _| (acc.1, acc.0 + acc.1))
+                .fold((1, 1), |(fst, snd), _| (snd, fst + snd))
                 .1
     }
 }
