@@ -3,22 +3,14 @@ fn fibonacci(n: u32) -> u32 {
         0 => 0,
         1 => 1,
         2 => 1,
-        _ => {
-            let mut n = n - 2;
-            let mut last = (1, 1);
-
-            while n > 0 {
-                last = (last.1, last.0 + last.1);
-                n = n - 1;
-            }
-
-            last.1
-        }
+        _ => (1..n)
+                .fold((1, 1), |acc, _| (acc.1, acc.0 + acc.1))
+                .1
     }
 }
 
 fn main() {
-    for n in 1..11 {
+    for n in 0..21 {
         println!("Fibonacci {} is: {}", n, fibonacci(n));
     }
 }
